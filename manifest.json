@@ -1,7 +1,8 @@
 {
   "name": "Branch Cash & Wholesale Deposit Tracker",
   "short_name": "Deposit Tracker",
-  "start_url": "/",
+  "start_url": "/deposit-tracker-app/",
+  "scope": "/deposit-tracker-app/",
   "display": "standalone",
   "background_color": "#f6f7f9",
   "theme_color": "#1f5fbf",
