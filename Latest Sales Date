@@ -1,0 +1,7 @@
+<div class="data-status-card">
+    <div class="status-icon">📅</div>
+    <div class="status-info">
+        <div class="status-label">Latest Sales Date</div>
+        <div id="latestSalesDate" class="status-value">Loading...</div>
+    </div>
+</div>
