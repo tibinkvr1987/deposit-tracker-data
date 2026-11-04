@@ -1,0 +1,1371 @@
+<!-- saved from url=(0051)https://tibinkvr1987.github.io/deposit-tracker-app/ -->
+<html lang="en" data-theme="dark" data-scribe-recorder-ready="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Branch Cash &amp; Wholesale Deposit Tracker</title>
+<style>
+:root, :root[data-theme="colourful"] {
+  --bg: #1b283d;
+  --bg-grad: radial-gradient(circle at 50% 0%, #243552 0%, #1b283d 75%);
+  --card: #233552;
+  --card-hi: #293e5f;
+  --tx: #f8fafc;
+  --mut: #9ab0ce;
+  --bd: rgba(255, 255, 255, 0.09);
+  --ac-on: #2da46e;
+  --ok: #34d399;
+  --wa: #fbbf24;
+  --bad: #f87171;
+  --hero-bg: linear-gradient(145deg, #cf732c, #aa5618);
+  --hero-bd: rgba(255, 210, 160, 0.28);
+  --hero-tx: #ffffff;
+  --neu-shadow: 6px 8px 16px rgba(10, 16, 26, 0.68), -2px -2px 8px rgba(255, 255, 255, 0.05);
+  --neu-sm: 3px 5px 10px rgba(10, 16, 26, 0.55), -1px -1px 5px rgba(255, 255, 255, 0.04);
+  --neu-inset: inset 2px 3px 6px rgba(10, 16, 26, 0.65), inset -1px -1px 4px rgba(255, 255, 255, 0.04);
+  --input-bg: #172234;
+  --btn-bg: linear-gradient(145deg, #2b4266, #213350);
+  --btn-hover: linear-gradient(145deg, #324c75, #263b5c);
+  --th-bg: rgba(15, 23, 38, 0.35);
+  --tfoot-bg: rgba(15, 23, 38, 0.55);
+
+  /* Distinct Cash Theme (Emerald / Teal) */
+  --cash-bg: linear-gradient(155deg, rgba(16, 185, 129, 0.18) 0%, rgba(13, 62, 56, 0.55) 100%);
+  --cash-bd: rgba(52, 211, 153, 0.38);
+  --cash-head: linear-gradient(90deg, rgba(16, 185, 129, 0.32), rgba(16, 185, 129, 0.06));
+  --cash-ac: #34d399;
+  --cash-row-alt: rgba(16, 185, 129, 0.05);
+  --cash-badge-bg: rgba(16, 185, 129, 0.22);
+
+  /* Distinct Wholesale Theme (Royal Purple / Indigo) */
+  --ws-bg: linear-gradient(155deg, rgba(139, 92, 246, 0.20) 0%, rgba(49, 32, 94, 0.58) 100%);
+  --ws-bd: rgba(167, 139, 250, 0.38);
+  --ws-head: linear-gradient(90deg, rgba(139, 92, 246, 0.34), rgba(139, 92, 246, 0.06));
+  --ws-ac: #c084fc;
+  --ws-row-alt: rgba(139, 92, 246, 0.06);
+  --ws-badge-bg: rgba(139, 92, 246, 0.24);
+}
+
+
+:root[data-theme="dark"] {
+  --bg: #0b0f17;
+  --bg-grad: radial-gradient(circle at 50% 0%, #151d2a 0%, #0b0f17 75%);
+  --card: #151c28;
+  --card-hi: #1b2434;
+  --tx: #e2e8f0;
+  --mut: #8b9bb4;
+  --bd: rgba(255, 255, 255, 0.08);
+  --ac-on: #059669;
+  --ok: #34d399;
+  --wa: #fbbf24;
+  --bad: #f87171;
+  --hero-bg: linear-gradient(145deg, #1e293b, #111827);
+  --hero-bd: rgba(255, 255, 255, 0.12);
+  --hero-tx: #f8fafc;
+  --neu-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+  --neu-sm: 0 3px 8px rgba(0, 0, 0, 0.5);
+  --neu-inset: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+  --input-bg: #0f1622;
+  --btn-bg: linear-gradient(145deg, #263348, #1a2436);
+  --btn-hover: linear-gradient(145deg, #314159, #222f46);
+  --th-bg: rgba(0, 0, 0, 0.35);
+  --tfoot-bg: rgba(0, 0, 0, 0.55);
+
+  /* Distinct Cash Theme (Dark Emerald) */
+  --cash-bg: linear-gradient(155deg, rgba(6, 95, 70, 0.28) 0%, rgba(15, 23, 35, 0.85) 100%);
+  --cash-bd: rgba(16, 185, 129, 0.32);
+  --cash-head: linear-gradient(90deg, rgba(16, 185, 129, 0.25), transparent);
+  --cash-ac: #34d399;
+  --cash-row-alt: rgba(16, 185, 129, 0.04);
+  --cash-badge-bg: rgba(16, 185, 129, 0.2);
+
+  /* Distinct Wholesale Theme (Dark Violet) */
+  --ws-bg: linear-gradient(155deg, rgba(91, 33, 182, 0.28) 0%, rgba(18, 16, 36, 0.85) 100%);
+  --ws-bd: rgba(139, 92, 246, 0.32);
+  --ws-head: linear-gradient(90deg, rgba(139, 92, 246, 0.25), transparent);
+  --ws-ac: #a78bfa;
+  --ws-row-alt: rgba(139, 92, 246, 0.04);
+  --ws-badge-bg: rgba(139, 92, 246, 0.22);
+}
+
+
+:root[data-theme="light"] {
+  --bg: #eef2f7;
+  --bg-grad: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  --card: #ffffff;
+  --card-hi: #ffffff;
+  --tx: #0f172a;
+  --mut: #475569;
+  --bd: #cbd5e1;
+  --ac-on: #059669;
+  --ok: #047857;
+  --wa: #d97706;
+  --bad: #dc2626;
+  --hero-bg: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --hero-bd: #cbd5e1;
+  --hero-tx: #0f172a;
+  --neu-shadow: 0 4px 14px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.05);
+  --neu-sm: 0 2px 5px rgba(15, 23, 42, 0.08);
+  --neu-inset: inset 0 1px 3px rgba(15, 23, 42, 0.08);
+  --input-bg: #f8fafc;
+  --btn-bg: linear-gradient(180deg, #ffffff, #f1f5f9);
+  --btn-hover: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  --th-bg: rgba(15, 23, 42, 0.05);
+  --tfoot-bg: rgba(15, 23, 42, 0.08);
+
+  /* Distinct Cash Theme (Mint / Emerald Daylight) */
+  --cash-bg: linear-gradient(160deg, #ecfdf5 0%, #d1fae5 100%);
+  --cash-bd: #6ee7b7;
+  --cash-head: linear-gradient(90deg, #a7f3d0, #ecfdf5);
+  --cash-ac: #065f46;
+  --cash-row-alt: rgba(5, 150, 105, 0.06);
+  --cash-badge-bg: #a7f3d0;
+
+  /* Distinct Wholesale Theme (Lavender / Indigo Daylight) */
+  --ws-bg: linear-gradient(160deg, #f5f3ff 0%, #ede9fe 100%);
+  --ws-bd: #c4b5fd;
+  --ws-head: linear-gradient(90deg, #ddd6fe, #f5f3ff);
+  --ws-ac: #5b21b6;
+  --ws-row-alt: rgba(124, 58, 237, 0.06);
+  --ws-badge-bg: #ddd6fe;
+}
+
+* { box-sizing: border-box; }
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg-grad);
+  background-attachment: fixed;
+  color: var(--tx);
+  font: 12px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 14px 36px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--hero-tx);
+}
+
+h2 {
+  font-size: 14.5px;
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: var(--tx);
+  letter-spacing: 0.01em;
+}
+
+.period-line {
+  color: var(--mut);
+  font-size: 12.5px;
+  font-weight: 600;
+  margin: 2px 0 10px 4px;
+  letter-spacing: 0.01em;
+}
+
+
+.hero-card {
+  background: var(--hero-bg);
+  border: 1px solid var(--hero-bd);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: var(--neu-shadow);
+  color: var(--hero-tx);
+}
+
+.hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.hero-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.amber-badge {
+  background: linear-gradient(145deg, #fcd34d, #f59e0b);
+  color: #2a1205;
+  font-weight: 800;
+  font-size: 11.5px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+}
+
+.hero-card .sub-desc {
+  color: var(--hero-tx);
+  opacity: 0.88;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+
+.theme-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.28);
+  padding: 5px 8px 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--neu-inset);
+}
+:root[data-theme="light"] .theme-box {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+.theme-lbl {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--hero-tx);
+  opacity: 0.9;
+}
+.theme-switcher {
+  display: flex;
+  gap: 4px;
+}
+.theme-switcher button {
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--hero-tx);
+  box-shadow: none;
+  opacity: 0.78;
+}
+.theme-switcher button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+}
+.theme-switcher button.on {
+  opacity: 1;
+  background: linear-gradient(145deg, #34b87c, #258f5e);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.hero-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+:root[data-theme="light"] .hero-controls {
+  border-top-color: #cbd5e1;
+}
+
+.hero-card input,
+.hero-card select,
+.hero-controls button {
+  background: var(--btn-bg);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  padding: 7px 14px;
+  box-shadow: var(--neu-sm);
+  font-weight: 600;
+}
+
+.hero-card label {
+  color: var(#d3eb8f);
+  font-weight: 700;
+  font-size: 11.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sub {
+  color: var(--mut);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+.card {
+  background: linear-gradient(145deg, var(--card-hi), var(--card));
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--neu-shadow);
+}
+
+.alert-banner {
+  background: linear-gradient(145deg, #cf732c, #aa5618);
+  border: 1px solid rgba(255, 210, 160, 0.35);
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--neu-shadow);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alert-banner .warn-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #fbbf24;
+  color: #2a1205;
+  font-weight: 900;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+#pendingCard {
+  border-left: 5px solid #f59e0b;
+}
+
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media(max-width: 720px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 440px) { .kpis { grid-template-columns: 1fr; } }
+
+.k {
+  background: linear-gradient(145deg, var(--card-hi), var(--card));
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--neu-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Row 1 KPIs: Cash Sales (Emerald Tint) */
+.k.cash-k {
+  background: var(--cash-bg);
+  border-color: var(--cash-bd);
+}
+
+.k.ws-k {
+  background: var(--ws-bg);
+  border-color: var(--ws-bd);
+}
+
+.k b {
+  order: 1;
+  display: block;
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 5px;
+  color: var(--tx);
+  font-variant-numeric: tabular-nums;
+}
+.k span:first-of-type {
+  order: 2;
+  color: var(--mut);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.k .bar {
+  order: 3;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.k .bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, var(--ok));
+  border-radius: 99px;
+}
+.k.ws-k .bar i {
+  background: linear-gradient(90deg, #8b5cf6, var(--ws-ac));
+}
+.k span:last-of-type:not(:first-of-type) {
+  order: 4;
+  margin-top: 4px;
+  font-size: 10.5px;
+  color: var(--tx);
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+.k.cash-k b { color: var(--cash-ac); }
+.k.ws-k b { color: var(--ws-ac); }
+.k b.neg { color: var(--wa) !important; }
+
+
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+  align-items: start;
+}
+@media(max-width: 920px) { .two-col { grid-template-columns: 1fr; } }
+
+.panel {
+  min-width: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--neu-shadow);
+  transition: transform 0.15s ease;
+}
+
+/* Panel 1: Cash Sales (Emerald/Teal Design) */
+.panel.cash {
+  background: var(--cash-bg);
+  border: 1.5px solid var(--cash-bd);
+  border-top: 4px solid var(--cash-ac);
+}
+
+/* Panel 2: Wholesale (Purple/Indigo Design) */
+.panel.ws {
+  background: var(--ws-bg);
+  border: 1.5px solid var(--ws-bd);
+  border-top: 4px solid var(--ws-ac);
+}
+
+.panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bd);
+}
+.panel.cash .panel-head { background: var(--cash-head); }
+.panel.ws .panel-head { background: var(--ws-head); }
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+}
+.panel.cash .panel-icon {
+  background: var(--cash-badge-bg);
+  color: var(--cash-ac);
+  border: 1px solid var(--cash-bd);
+}
+.panel.ws .panel-icon {
+  background: var(--ws-badge-bg);
+  color: var(--ws-ac);
+  border: 1px solid var(--ws-bd);
+}
+
+.panel h3 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.panel.cash h3 { color: var(--cash-ac); }
+.panel.ws h3 { color: var(--ws-ac); }
+
+/* Mini Summary Pills inside Panel Header */
+.panel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.stat-chip {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.35);
+  color: var(--tx);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+:root[data-theme="light"] .stat-chip {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(15, 23, 42, 0.15);
+}
+.stat-chip b {
+  font-weight: 800;
+}
+.panel.cash .stat-chip b { color: var(--cash-ac); }
+.panel.ws .stat-chip b { color: var(--ws-ac); }
+
+
+.site-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+.site-badge.cash-b {
+  background: var(--cash-badge-bg);
+  color: var(--cash-ac);
+  border: 1px solid var(--cash-bd);
+}
+.site-badge.ws-b {
+  background: var(--ws-badge-bg);
+  color: var(--ws-ac);
+  border: 1px solid var(--ws-bd);
+  border-radius: 999px;
+}
+
+/* Alternating Row Tint for Cash & Wholesale Tables */
+#ct tbody tr:nth-child(even) td { background: var(--cash-row-alt); }
+#wt tbody tr:nth-child(even) td { background: var(--ws-row-alt); }
+#ct tbody tr:hover td { background: rgba(52, 211, 153, 0.14); }
+#wt tbody tr:hover td { background: rgba(167, 139, 250, 0.14); }
+
+
+.wrap { overflow-x: auto; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 500px;
+}
+th, td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--bd);
+  text-align: right;
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+th {
+  font-size: 10.5px;
+  color: var(--mut);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  user-select: none;
+  font-weight: 800;
+  background: var(--th-bg);
+}
+th.l, td.l { text-align: left; }
+tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+tfoot td {
+  font-weight: 800;
+  color: var(--tx);
+  background: var(--tfoot-bg);
+  border-top: 2px solid var(--bd);
+  font-size: 12px;
+}
+
+.pill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #111;
+  display: inline-block;
+}
+.Pending { background: var(--bad); color: #fff; }
+.Partial { background: var(--wa); color: #1b283d; }
+.Deposited { background: var(--ac-on); color: #fff; }
+.NA { background: var(--mut); color: #1b283d; }
+
+.neg { color: var(--wa); font-weight: 700; }
+:root[data-theme="light"] .neg { color: #dc2626; }
+.pos { color: var(--ok); font-weight: 700; }
+
+input, select, textarea {
+  font: inherit;
+  color: var(--tx);
+  background: var(--input-bg);
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  padding: 6px 10px;
+  box-shadow: var(--neu-inset);
+  outline: none;
+}
+
+/* Explicit color mapping for dropdowns and options to prevent dark text on dark backgrounds */
+select {
+  background-color: var(--input-bg);
+  color: var(--tx);
+}
+
+select option {
+  background-color: var(--input-bg);
+  color: var(--tx);
+  padding: 8px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--ok);
+}
+input.n { width: 105px; text-align: right; }
+input.r { width: 155px; }
+
+button {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  padding: 8px 18px;
+  box-shadow: var(--neu-sm);
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+button:hover {
+  background: var(--btn-hover);
+}
+button:active {
+  transform: translateY(1px);
+}
+
+.tabs button {
+  background: var(--btn-bg);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  padding: 9px 22px;
+}
+.tabs button.on {
+  background: linear-gradient(145deg, #34b87c, #258f5e);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.f {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+textarea {
+  width: 100%;
+  min-height: 90px;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+.msg {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+
+.print-only { display: none; }
+.print-header { font-size: 16px; font-weight: 700; text-align: center; margin: 0 0 2px; color: #111; }
+.approval-wrap { margin-top: 10px; border: 1px solid #2a3f6e; border-radius: 7px; overflow: hidden; break-inside: avoid; }
+.approval-title { background: #1f3a8f; color: #fff; font-weight: 700; padding: 4px 10px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.approval { width: 100%; border-collapse: collapse; }
+.approval td { border: 1px solid #ccd3e0; padding: 6px 10px; font-size: 10.5px; color: #111; text-align: left; white-space: normal; position: relative; }
+.approval tr.sig td { height: 38px; vertical-align: bottom; border-bottom: 1.5px dashed #9aa5bd; }
+.approval td.lbl { font-weight: 700; width: 100px; background: #eef1fa; }
+.approval td.role { color: #1f3a8f; font-weight: 700; text-align: center; background: #f6f8fd; }
+.approval .dt { position: absolute; bottom: 3px; right: 8px; font-size: 7.5px; color: #8a93a8; font-weight: 400; }
+
+@media print {
+  @page { size: A4 landscape; margin: 5mm; }
+  body { background: #fff !important; color: #111 !important; }
+  .no-print, .hero-card, .period-line, .alert-banner, .panel-stats, #st, #d1, #d2, #bs { display: none !important; }
+  main { max-width: none; padding: 0; }
+  .card, #pendingCard, .k, .panel { background: #fff !important; color: #111 !important; box-shadow: none !important; border: 1px solid #ccd3e0 !important; padding: 5px; margin-bottom: 4px; }
+  .k b, h1, h2, .panel h3, th, td, tfoot td, .site-badge { color: #111 !important; text-shadow: none !important; background: transparent !important; border-color: #ccc !important; }
+  .neg { color: #c62f2f !important; }
+  .pos { color: #1a8a4a !important; }
+  table:not(.approval) { width: auto; }
+  th, td { padding: 1px 4px; font-size: 9px; border-bottom: 1px solid #ddd !important; }
+  .two-col { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; gap: 6px; }
+  .kpis { gap: 4px; margin-bottom: 4px; }
+  .k b { font-size: 14px; }
+  h2 { margin-bottom: 2px; font-size: 11px; }
+  .panel-head { padding: 4px; }
+  .print-header { margin-bottom: 2px; }
+  .approval-wrap { margin-top: 4px; }
+  .print-only { display: block; }
+}
+</style></head><body><main>
+<div class="print-only print-header">RNM Cash Deposit Tracker</div>
+<div class="print-only" id="printRange" style="text-align:center;font-size:10.5px;color:#444;margin:-2px 0 8px">Period: 01/11/2026 to today · All branches</div>
+
+<div class="period-line no-print" id="screenPeriod">Period 2026-11-01 → 2026-11-02 · All branches</div>
+
+<!-- Hero Card with Theme Selector in Top-Right Space -->
+<div class="hero-card no-print">
+  <div class="hero-top">
+    <div>
+      <div class="hero-title-row">
+        <h1>Branch Cash &amp; Wholesale Deposit Tracker</h1>
+        <span class="amber-badge" id="st" style="background: linear-gradient(145deg, rgb(252, 211, 77), rgb(245, 158, 11)); color: rgb(42, 18, 5);">Live · updated 15:57:49 · Finance</span>
+      </div>
+      <div class="sub-desc">Sales entered by Finance · Branches record bank deposits and delay reasons </div>
+    </div>
+
+    <div class="theme-box">
+      <span class="theme-lbl">Theme</span>
+      <div class="theme-switcher" id="themeSwitcher">
+        <button type="button" data-theme-val="light" class="">☀ Light</button>
+        <button type="button" data-theme-val="dark" class="on">🌙 Dark</button>
+        <button type="button" data-theme-val="colourful" class="">🎨 Colourful</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-controls">
+    <div class="f">
+      <label>From <input type="date" id="d1" min="2026-09-01" max="2026-11-02" title="Data available 01/09/2026 to 02/11/2026"></label>
+      <label>To <input type="date" id="d2" min="2026-09-01" max="2026-11-02" title="Data available 01/09/2026 to 02/11/2026"></label>
+      <select id="bs"><option value="">All branches</option><option value="1010">1010 · Al Dhait</option><option value="1020">1020 · Kharan</option><option value="1030">1030 · Al Jazeerah</option><option value="1040">1040 · Ghalilah</option><option value="1050">1050 · Zahra</option><option value="1060">1060 · South Al Dhait</option><option value="1070">1070 · Masafi</option><option value="1080">1080 · Wadi Al Qor</option><option value="1090">1090 · Al Shaghie</option><option value="1100">1100 · Sh. Khalifa City</option><option value="1210">1210 · Muweilah</option><option value="1310">1310 · Mamzar</option></select>
+    </div>
+    <div class="f">
+      <select id="role"><option value="">Select your role…</option><option value="finance">Finance (all branches)</option><option value="1010">1010 · Al Dhait</option><option value="1020">1020 · Kharan</option><option value="1030">1030 · Al Jazeerah</option><option value="1040">1040 · Ghalilah</option><option value="1050">1050 · Zahra</option><option value="1060">1060 · South Al Dhait</option><option value="1070">1070 · Masafi</option><option value="1080">1080 · Wadi Al Qor</option><option value="1090">1090 · Al Shaghie</option><option value="1100">1100 · Sh. Khalifa City</option><option value="1210">1210 · Muweilah</option><option value="1310">1310 · Mamzar</option></select>
+      <button id="tok" class="g">Set my GitHub token</button>
+    </div>
+  </div>
+</div>
+
+<div class="kpis" id="kpis"><div class="k cash-k"><span>💵 Cash sales</span><b>363,851.39</b></div>
+    <div class="k cash-k"><span>💵 Deposited in bank (Cash)</span><b>363,675.75</b><div class="bar"><i style="width:99.951727544589%"></i></div><span>100.0% of cash sales</span></div>
+    <div class="k cash-k"><span>💵 Excess/Short (Cash)</span><b class="neg">-3.89</b></div>
+    <div class="k ws-k"><span>📦 Wholesale sales</span><b>28,671.49</b></div>
+    <div class="k ws-k"><span>📦 Deposited in bank (WS)</span><b>7,900.00</b><div class="bar"><i style="width:27.55350349772544%"></i></div><span>27.6% of wholesale</span></div>
+    <div class="k ws-k"><span>📦 Variance (Wholesale)</span><b class="neg">-20,771.49<b></b></b></div></div>
+
+<div class="alert-banner no-print" id="pendingBanner" style="display: flex;">
+  <span class="warn-ico">▲</span>
+  <span id="pendingBannerText">1 pending deposit item (20,771.29 AED net short) need attention. Check the pending rows below or open Deposit entry.</span>
+</div>
+
+<div class="tabs f no-print" style="margin-bottom:14px">
+  <button class="on" data-t="dash">Dashboard</button>
+  <button data-t="ent">Deposit entry</button>
+  <button data-t="adm" id="admTab" style="">Sales entry (Finance)</button>
+</div>
+
+<section id="dash">
+<div class="card">
+  <div class="f" style="justify-content:space-between">
+    <h2 style="margin:0">Branch Wise Breakdown</h2>
+    <span class="sub">Click any column heading to sort</span>
+  </div>
+  <div class="two-col">
+    <!-- Cash Sales Panel (Emerald Theme) -->
+    <div class="panel cash">
+      <div class="panel-head">
+        <div class="panel-title">
+          <span class="panel-icon">💵</span>
+          <h3>Cash Sales</h3>
+        </div>
+        <div class="panel-stats" id="cashPanelStats"><span class="stat-chip">Banked: <b>100.0%</b></span><span class="stat-chip">Diff: <b>-3.89</b></span></div>
+      </div>
+      <div class="wrap"><table id="ct"><thead><tr><th class="l" data-i="0" style="cursor:pointer">Site ▲</th><th class="l" data-i="1" style="cursor:pointer">Branch</th><th class="" data-i="2" style="cursor:pointer">Total Cash Sales</th><th class="" data-i="3" style="cursor:pointer">Total Cash Deposit</th><th class="" data-i="4" style="cursor:pointer">Excess/Short</th></tr></thead><tbody><tr><td class="l"><span class="site-badge cash-b">1010</span></td><td class="l"><b>Al Dhait</b></td><td class="">41,325.31</td><td class="">41,295.00</td><td class="neg">-0.31</td></tr><tr><td class="l"><span class="site-badge cash-b">1020</span></td><td class="l"><b>Kharan</b></td><td class="">45,892.06</td><td class="">45,892.25</td><td class="pos">0.19</td></tr><tr><td class="l"><span class="site-badge cash-b">1030</span></td><td class="l"><b>Al Jazeerah</b></td><td class="">56,970.62</td><td class="">56,966.50</td><td class="pos">1.83</td></tr><tr><td class="l"><span class="site-badge cash-b">1040</span></td><td class="l"><b>Ghalilah</b></td><td class="">51,461.83</td><td class="">51,462.50</td><td class="pos">0.67</td></tr><tr><td class="l"><span class="site-badge cash-b">1050</span></td><td class="l"><b>Zahra</b></td><td class="">48,292.06</td><td class="">48,218.00</td><td class="neg">-4.16</td></tr><tr><td class="l"><span class="site-badge cash-b">1060</span></td><td class="l"><b>South Al Dhait</b></td><td class="">32,494.14</td><td class="">32,494.00</td><td class="neg">-0.14</td></tr><tr><td class="l"><span class="site-badge cash-b">1070</span></td><td class="l"><b>Masafi</b></td><td class="">23,938.81</td><td class="">23,938.75</td><td class="neg">-0.06</td></tr><tr><td class="l"><span class="site-badge cash-b">1080</span></td><td class="l"><b>Wadi Al Qor</b></td><td class="">16,441.59</td><td class="">16,440.75</td><td class="neg">-0.84</td></tr><tr><td class="l"><span class="site-badge cash-b">1090</span></td><td class="l"><b>Al Shaghie</b></td><td class="">12,508.47</td><td class="">12,498.50</td><td class="pos">0.03</td></tr><tr><td class="l"><span class="site-badge cash-b">1100</span></td><td class="l"><b>Sh. Khalifa City</b></td><td class="">24,458.84</td><td class="">24,458.25</td><td class="neg">-0.59</td></tr><tr><td class="l"><span class="site-badge cash-b">1210</span></td><td class="l"><b>Muweilah</b></td><td class="">4,260.52</td><td class="">4,204.00</td><td class="neg">-0.62</td></tr><tr><td class="l"><span class="site-badge cash-b">1310</span></td><td class="l"><b>Mamzar</b></td><td class="">5,807.14</td><td class="">5,807.25</td><td class="pos">0.11</td></tr></tbody><tfoot><tr><td class="l">Total</td><td></td><td>363,851.39</td><td>363,675.75</td><td class="neg">-3.89</td></tr></tfoot></table></div>
+    </div>
+
+    <!-- Wholesale Panel (Royal Purple Theme) -->
+    <div class="panel ws">
+      <div class="panel-head">
+        <div class="panel-title">
+          <span class="panel-icon">📦</span>
+          <h3>Wholesale</h3>
+        </div>
+        <div class="panel-stats" id="wsPanelStats"><span class="stat-chip">Banked: <b>27.6%</b></span><span class="stat-chip">Var: <b>-20,771.49</b></span></div>
+      </div>
+      <div class="wrap"><table id="wt"><thead><tr><th class="l" data-i="0" style="cursor:pointer">Site ▲</th><th class="l" data-i="1" style="cursor:pointer">Branch</th><th class="" data-i="2" style="cursor:pointer">Total WS</th><th class="" data-i="3" style="cursor:pointer">Total WS Deposit</th><th class="" data-i="4" style="cursor:pointer">Variance</th></tr></thead><tbody><tr><td class="l"><span class="site-badge ws-b">◆ 1080</span></td><td class="l"><b>Wadi Al Qor</b></td><td class="">28,671.49</td><td class="">7,900.00</td><td class="neg">-20,771.49</td></tr></tbody><tfoot><tr><td class="l">Total</td><td></td><td>28,671.49</td><td>7,900.00</td><td class="neg">-20,771.49</td></tr></tfoot></table></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" id="pendingCard">
+  <h2><span style="background:#fbbf24;color:#2a1205;padding:2px 8px;border-radius:6px;font-size:12px">▲</span> Details of pending</h2>
+  <div class="wrap"><table id="pt"><thead><tr><th class="l" data-i="0" style="cursor:pointer">Date ▲</th><th class="l" data-i="1" style="cursor:pointer">Branch</th><th class="" data-i="2" style="cursor:pointer">Pending</th><th class="" data-i="3" style="cursor:pointer">Amount</th><th class="" data-i="4" style="cursor:pointer">No. of Days</th><th class="l" data-i="5" style="cursor:pointer">Remarks</th></tr></thead><tbody><tr><td class="l">02/11/2026</td><td class="l">1080 · Wadi Al Qor</td><td class=""><span class="site-badge ws-b">WS</span></td><td class="neg">20,771.29</td><td class="">1 day</td><td class="l"><span class="sub">— none given —</span></td></tr></tbody><tfoot><tr><td colspan="3" class="l">Total_Pending</td><td class="neg">20,771.29</td><td></td><td></td></tr></tfoot></table></div>
+</div>
+
+<div class="card no-print"><div class="f" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">All transactions for the month</h2><div class="f"><input type="month" id="mo"><button class="g dl" data-r="mon">Download CSV</button></div></div><div class="wrap"><table id="mt"><thead><tr><th class="l" data-i="0" style="cursor:pointer">Date ▼</th><th class="l" data-i="1" style="cursor:pointer">Branch</th><th class="" data-i="2" style="cursor:pointer">Cash sales</th><th class="" data-i="3" style="cursor:pointer">Cash deposited</th><th class="" data-i="4" style="cursor:pointer">Excess/Short</th><th class="" data-i="5" style="cursor:pointer">WS sales</th><th class="" data-i="6" style="cursor:pointer">WS deposited</th><th class="" data-i="7" style="cursor:pointer">WS pending</th><th class="" data-i="8" style="cursor:pointer">Status</th><th class="l" data-i="9" style="cursor:pointer">Reason</th></tr></thead><tbody><tr><td class="l">02/11/2026</td><td class="l">1010 · Al Dhait</td><td class="">22,221.94</td><td class="">22,222.00</td><td class="">0.06</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1020 · Kharan</td><td class="">18,602.20</td><td class="">18,602.25</td><td class="">0.05</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1030 · Al Jazeerah</td><td class="">25,083.03</td><td class="">25,078.00</td><td class="">0.92</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1040 · Ghalilah</td><td class="">27,551.93</td><td class="">27,552.25</td><td class="">0.32</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1050 · Zahra</td><td class="">22,121.10</td><td class="">22,120.00</td><td class="neg">-1.10</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1060 · South Al Dhait</td><td class="">14,677.01</td><td class="">14,677.00</td><td class="neg">-0.01</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1070 · Masafi</td><td class="">8,901.32</td><td class="">8,901.25</td><td class="neg">-0.07</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1080 · Wadi Al Qor</td><td class="">4,891.07</td><td class="">4,890.50</td><td class="neg">-0.57</td><td class="">20,771.29</td><td class="">0.00</td><td class="neg">20,771.29</td><td class=""><span class="pill Pending">Pending</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1090 · Al Shaghie</td><td class="">4,667.65</td><td class="">4,667.50</td><td class="neg">-0.15</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1100 · Sh. Khalifa City</td><td class="">10,101.63</td><td class="">10,101.00</td><td class="neg">-0.63</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1210 · Muweilah</td><td class="">2,006.79</td><td class="">1,950.50</td><td class="neg">-0.39</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">02/11/2026</td><td class="l">1310 · Mamzar</td><td class="">2,352.85</td><td class="">2,353.00</td><td class="">0.15</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1010 · Al Dhait</td><td class="">19,103.37</td><td class="">19,073.00</td><td class="neg">-0.37</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1020 · Kharan</td><td class="">27,289.86</td><td class="">27,290.00</td><td class="">0.14</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1030 · Al Jazeerah</td><td class="">31,887.59</td><td class="">31,888.50</td><td class="">0.91</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1040 · Ghalilah</td><td class="">23,909.90</td><td class="">23,910.25</td><td class="">0.35</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1050 · Zahra</td><td class="">26,170.96</td><td class="">26,098.00</td><td class="neg">-3.06</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1060 · South Al Dhait</td><td class="">17,817.13</td><td class="">17,817.00</td><td class="neg">-0.13</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1070 · Masafi</td><td class="">15,037.49</td><td class="">15,037.50</td><td class="">0.01</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1080 · Wadi Al Qor</td><td class="">11,550.52</td><td class="">11,550.25</td><td class="neg">-0.27</td><td class="">7,900.20</td><td class="">7,900.00</td><td class="neg">0.20</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1090 · Al Shaghie</td><td class="">7,840.82</td><td class="">7,831.00</td><td class="">0.18</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1100 · Sh. Khalifa City</td><td class="">14,357.21</td><td class="">14,357.25</td><td class="">0.04</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1210 · Muweilah</td><td class="">2,253.73</td><td class="">2,253.50</td><td class="neg">-0.23</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr><tr><td class="l">01/11/2026</td><td class="l">1310 · Mamzar</td><td class="">3,454.29</td><td class="">3,454.25</td><td class="neg">-0.04</td><td class="">0.00</td><td class="">0.00</td><td class="">0.00</td><td class=""><span class="pill Deposited">Deposited</span></td><td class="l"></td></tr></tbody><tfoot><tr><td class="l">Total</td><td></td><td>363,851.39</td><td>363,675.75</td><td class="neg">-3.89</td><td>28,671.49</td><td>7,900.00</td><td class="neg">20,771.49</td><td></td><td></td></tr></tfoot></table></div></div>
+</section>
+
+<section id="ent" hidden=""><div class="card"><h2>Record deposits</h2><div class="msg" style="margin-bottom:8px">Enter the amount banked and, if it is late or short, the reason. Click outside the box to save.</div><div class="wrap"><table id="et"><thead><tr><th class="l">Date</th><th class="l">Branch</th><th>Cash to bank</th><th>Cash deposited</th><th class="l">Reason (cash)</th><th>Wholesale</th><th>WS deposited</th><th class="l">Reason (WS)</th><th>Status</th></tr></thead><tbody><tr data-k="2026-11-02_1010"><td class="l">02/11/2026</td><td class="l">1010 · Al Dhait</td><td>22,221.94</td>
+    <td><input class="n" data-f="cashDep" value="22222" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1020"><td class="l">02/11/2026</td><td class="l">1020 · Kharan</td><td>18,602.20</td>
+    <td><input class="n" data-f="cashDep" value="18602.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1030"><td class="l">02/11/2026</td><td class="l">1030 · Al Jazeerah</td><td>25,077.08</td>
+    <td><input class="n" data-f="cashDep" value="25078" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1040"><td class="l">02/11/2026</td><td class="l">1040 · Ghalilah</td><td>27,551.93</td>
+    <td><input class="n" data-f="cashDep" value="27552.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1050"><td class="l">02/11/2026</td><td class="l">1050 · Zahra</td><td>22,121.10</td>
+    <td><input class="n" data-f="cashDep" value="22120" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1060"><td class="l">02/11/2026</td><td class="l">1060 · South Al Dhait</td><td>14,677.01</td>
+    <td><input class="n" data-f="cashDep" value="14677" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1070"><td class="l">02/11/2026</td><td class="l">1070 · Masafi</td><td>8,901.32</td>
+    <td><input class="n" data-f="cashDep" value="8901.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1080"><td class="l">02/11/2026</td><td class="l">1080 · Wadi Al Qor</td><td>4,891.07</td>
+    <td><input class="n" data-f="cashDep" value="4890.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>20,771.29</td>
+    <td><input class="n" data-f="wsDep" value="" inputmode="decimal"></td>
+    <td><input class="r" data-f="wsReason" value=""></td>
+    <td><span class="pill Pending">Pending</span></td></tr><tr data-k="2026-11-02_1090"><td class="l">02/11/2026</td><td class="l">1090 · Al Shaghie</td><td>4,667.65</td>
+    <td><input class="n" data-f="cashDep" value="4667.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1100"><td class="l">02/11/2026</td><td class="l">1100 · Sh. Khalifa City</td><td>10,101.63</td>
+    <td><input class="n" data-f="cashDep" value="10101" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1210"><td class="l">02/11/2026</td><td class="l">1210 · Muweilah</td><td>1,950.89</td>
+    <td><input class="n" data-f="cashDep" value="1950.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-02_1310"><td class="l">02/11/2026</td><td class="l">1310 · Mamzar</td><td>2,352.85</td>
+    <td><input class="n" data-f="cashDep" value="2353" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1010"><td class="l">01/11/2026</td><td class="l">1010 · Al Dhait</td><td>19,073.37</td>
+    <td><input class="n" data-f="cashDep" value="19073" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1020"><td class="l">01/11/2026</td><td class="l">1020 · Kharan</td><td>27,289.86</td>
+    <td><input class="n" data-f="cashDep" value="27290" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1030"><td class="l">01/11/2026</td><td class="l">1030 · Al Jazeerah</td><td>31,887.59</td>
+    <td><input class="n" data-f="cashDep" value="31888.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1040"><td class="l">01/11/2026</td><td class="l">1040 · Ghalilah</td><td>23,909.90</td>
+    <td><input class="n" data-f="cashDep" value="23910.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1050"><td class="l">01/11/2026</td><td class="l">1050 · Zahra</td><td>26,101.06</td>
+    <td><input class="n" data-f="cashDep" value="26098" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1060"><td class="l">01/11/2026</td><td class="l">1060 · South Al Dhait</td><td>17,817.13</td>
+    <td><input class="n" data-f="cashDep" value="17817" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1070"><td class="l">01/11/2026</td><td class="l">1070 · Masafi</td><td>15,037.49</td>
+    <td><input class="n" data-f="cashDep" value="15037.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1080"><td class="l">01/11/2026</td><td class="l">1080 · Wadi Al Qor</td><td>11,550.52</td>
+    <td><input class="n" data-f="cashDep" value="11550.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>7,900.20</td>
+    <td><input class="n" data-f="wsDep" value="7900" inputmode="decimal"></td>
+    <td><input class="r" data-f="wsReason" value=""></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1090"><td class="l">01/11/2026</td><td class="l">1090 · Al Shaghie</td><td>7,830.82</td>
+    <td><input class="n" data-f="cashDep" value="7831" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1100"><td class="l">01/11/2026</td><td class="l">1100 · Sh. Khalifa City</td><td>14,357.21</td>
+    <td><input class="n" data-f="cashDep" value="14357.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1210"><td class="l">01/11/2026</td><td class="l">1210 · Muweilah</td><td>2,253.73</td>
+    <td><input class="n" data-f="cashDep" value="2253.5" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr><tr data-k="2026-11-01_1310"><td class="l">01/11/2026</td><td class="l">1310 · Mamzar</td><td>3,454.29</td>
+    <td><input class="n" data-f="cashDep" value="3454.25" inputmode="decimal"></td>
+    <td><input class="r" data-f="cashReason" value=""></td>
+    <td>–</td>
+    <td></td>
+    <td></td>
+    <td><span class="pill Deposited">Deposited</span></td></tr></tbody></table></div></div></section>
+
+<section id="adm" hidden="">
+<div class="card"><h2>Paste sales data (manual upload)</h2><div class="wrap" style="margin-bottom:8px"><table style="min-width:0"><thead><tr><th class="l">Site</th><th class="l">Branch</th><th class="l">tran_date</th><th class="l">Cash</th><th class="l">Deposit for Cash Sale</th><th class="l">InstaShop Cash Disc</th><th class="l">Excess/Short</th><th class="l">Reason For Delay</th><th class="l">Wholesale</th><th class="l">Deposit for WS</th><th class="l">Variance</th><th class="l">Reason For Delay if any</th></tr></thead></table></div>
+<div class="msg" style="margin-bottom:8px">Copy rows from the <b>Detailed</b> sheet (columns exactly as above) and paste below. Dates are dd/mm/yyyy. Header and Total rows are ignored. Excess/Short and Variance are recalculated by the app. Re-importing a date and branch overwrites the sales figures; deposits and reasons load only where the branch hasn't entered its own.</div>
+<textarea id="paste" placeholder="Paste rows here…"></textarea>
+<div class="f" style="margin-top:8px"><button id="imp">Import sales</button><span class="msg" id="impm"></span></div></div>
+<div class="card"><h2>Add / edit single entry</h2><div class="f">
+<input type="date" id="ad"><select id="ab"><option value="1010">1010 · Al Dhait</option><option value="1020">1020 · Kharan</option><option value="1030">1030 · Al Jazeerah</option><option value="1040">1040 · Ghalilah</option><option value="1050">1050 · Zahra</option><option value="1060">1060 · South Al Dhait</option><option value="1070">1070 · Masafi</option><option value="1080">1080 · Wadi Al Qor</option><option value="1090">1090 · Al Shaghie</option><option value="1100">1100 · Sh. Khalifa City</option><option value="1210">1210 · Muweilah</option><option value="1310">1310 · Mamzar</option></select>
+<input class="n" id="ac" placeholder="Cash sales" inputmode="decimal"><input class="n" id="ai" placeholder="InstaShop disc." inputmode="decimal"><input class="n" id="aw" placeholder="Wholesale" inputmode="decimal">
+<button id="sv">Save sales</button><span class="msg" id="svm"></span></div></div>
+</section>
+<div class="print-only approval-wrap">
+<div class="approval-title">Approval</div>
+<table class="approval">
+<tbody><tr class="sig"><td class="lbl">Signature</td><td><span class="dt">Date:</span></td><td><span class="dt">Date:</span></td><td><span class="dt">Date:</span></td></tr>
+<tr><td class="lbl">Approved By</td><td class="role">Area Operations Manager</td><td class="role">Area Operations Manager</td><td class="role">General Manager</td></tr>
+</tbody></table>
+</div>
+</main>
+<script>
+// ============ CONFIG — edit these three before using ============
+const GH_OWNER = 'tibinkvr1987';           // your GitHub username
+const GH_REPO  = 'deposit-tracker-data';   // your public data repo
+const GH_BRANCH= 'main';
+const GH_PATH  = '';                       // folder inside the repo holding the JSON files; leave '' if the files sit in the repo root
+const FINANCE_PIN = 'HOtib123';            // only people who know this can pick the Finance role
+// ==================================================================
+const BR=[["1010","Al Dhait"],["1020","Kharan"],["1030","Al Jazeerah"],["1040","Ghalilah"],["1050","Zahra"],["1060","South Al Dhait"],["1070","Masafi"],["1080","Wadi Al Qor"],["1090","Al Shaghie"],["1100","Sh. Khalifa City"],["1210","Muweilah"],["1310","Mamzar"]];
+const $=id=>document.getElementById(id);
+const fm=n=>(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const num=v=>{const x=parseFloat(String(v??'').replace(/[^0-9.\-]/g,''));return isNaN(x)?0:x};
+const nm=s=>(BR.find(b=>b[0]===s)||[0,s])[1];
+const canBr=c=>admin||role===c;
+const SITES=BR.map(b=>b[0]);
+let sales={},deps={},admin=false,canWrite=false,role=localStorage.getItem('role')||'';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const d1 = document.getElementById("d1");
+if (d1) {
+    const today = new Date();
+    d1.value = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-01`;
+}
+// ---- Theme Switcher Logic (Light / Dark / Colourful) ----
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('appTheme', t);
+  document.querySelectorAll('#themeSwitcher button').forEach(b=>{
+    b.classList.toggle('on', b.dataset.themeVal === t);
+  });
+}
+applyTheme(localStorage.getItem('appTheme') || 'colourful');
+$('themeSwitcher').addEventListener('click', e=>{
+  const b = e.target.closest('button[data-theme-val]');
+  if(b) applyTheme(b.dataset.themeVal);
+});
+
+// ---- GitHub storage ----
+function ghToken(){return localStorage.getItem('ghToken')||''}
+const ghJoin=f=>GH_PATH?`${GH_PATH}/${f}`:f;
+function ghRawUrl(file){return `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${ghJoin(file)}`}
+async function ghGet(file){
+  const r=await fetch(ghRawUrl(file)+`?t=${Date.now()}`,{cache:'no-store'});
+  if(r.status===404)return{};
+  if(!r.ok)throw new Error('GitHub read failed ('+r.status+')');
+  const t=await r.text();return t.trim()?JSON.parse(t):{};
+}
+async function ghPut(file,obj,message){
+  const tok=ghToken();if(!tok)throw new Error('Set your GitHub token first (top of page).');
+  const api=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${ghJoin(file)}`;
+  let sha=null;
+  const g=await fetch(api+`?ref=${GH_BRANCH}`,{headers:{Authorization:'token '+tok}});
+  if(g.ok)sha=(await g.json()).sha;
+  else if(g.status===401)throw new Error('GitHub token was rejected — set it again.');
+  else if(g.status!==404)throw new Error('GitHub lookup failed ('+g.status+') for '+GH_OWNER+'/'+GH_REPO+'/'+ghJoin(file));
+  const body={message,branch:GH_BRANCH,content:btoa(unescape(encodeURIComponent(JSON.stringify(obj))))};
+  if(sha)body.sha=sha;
+  const p=await fetch(api,{method:'PUT',headers:{Authorization:'token '+tok,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!p.ok){const e=await p.json().catch(()=>({}));throw new Error((e.message||('HTTP '+p.status))+' — check the repo '+GH_OWNER+'/'+GH_REPO+' exists, is public, has a '+GH_BRANCH+' branch, and your token has access to it')}
+}
+async function loadSales(){return ghGet('sales.json')}
+async function saveSales(list){const c=await loadSales();list.forEach(o=>c[o.date+'_'+o.site]=o);await ghPut('sales.json',c,'Update sales')}
+async function saveDeps(list){const by={};list.forEach(([k,o])=>{const c=k.split('_')[1];(by[c]=by[c]||[]).push([k,o])});
+  for(const c in by){const cur=await ghGet('dep_'+c+'.json');by[c].forEach(([k,o])=>cur[k]=o);await ghPut('dep_'+c+'.json',cur,'Update deposits '+c)}}
+const roleLbl=()=>admin?'Finance':role?'Branch '+role+' '+nm(role):'view only';
+function seedFromDom(){
+  if(Object.keys(sales).length)return;
+  document.querySelectorAll('#et tbody tr[data-k]').forEach(tr=>{
+    const k=tr.dataset.k,[date,site]=k.split('_'),tds=tr.querySelectorAll('td');
+    if(!date||!site||tds.length<8)return;
+    const cashDue=num(tds[2].textContent),ws=num(tds[5].textContent);
+    const cdI=tds[3].querySelector('input'),crI=tds[4].querySelector('input');
+    const wdI=tds[6].querySelector('input'),wrI=tds[7].querySelector('input');
+    sales[k]={date,site,cash:cashDue,insta:0,ws};
+    const cd=cdI?num(cdI.value):0,cr=crI?crI.value:'',wd=wdI?num(wdI.value):0,wr=wrI?wrI.value:'';
+    if(cd||cr||wd||wr)deps[k]={cashDep:cd,cashReason:cr,wsDep:wd,wsReason:wr};
+  });
+  document.querySelectorAll('#mt tbody tr').forEach(tr=>{
+    const tds=tr.querySelectorAll('td');if(tds.length<3)return;
+    const dp=tds[0].textContent.trim().split('/');if(dp.length!==3)return;
+    const date=`${dp[2]}-${dp[1]}-${dp[0]}`,site=tds[1].textContent.trim().split('·')[0].trim();
+    const k=`${date}_${site}`,cg=num(tds[2].textContent);
+    if(sales[k]){sales[k].insta=+(cg-sales[k].cash).toFixed(2);sales[k].cash=cg;}
+  });
+}
+async function loadAll(){
+  try{const S=await loadSales(),D={};for(const c of SITES)Object.assign(D,await ghGet('dep_'+c+'.json'));
+    if(Object.keys(S).length){sales=S;deps=D;}
+    const ds=Object.values(sales).map(x=>x.date).filter(Boolean).sort();
+    if(ds.length){const mn=ds[0],mx=ds[ds.length-1];['d1','d2'].forEach(id=>{$(id).min=mn;$(id).max=mx;$(id).title='Data available '+fmtD(mn)+' to '+fmtD(mx)})}
+    render();setSt('Live · updated '+new Date().toLocaleTimeString()+' · '+roleLbl())}
+  catch(e){
+    if(Object.keys(sales).length){render();setSt('Offline snapshot · '+roleLbl());}
+    else setSt('Could not load data: '+(e.message||e.name)+' — check GH_OWNER/GH_REPO in the file are set correctly.',1);
+  }
+}
+
+// ---- data helpers
+function rows(a=$('d1').value,b=$('d2').value,br=$('bs').value){
+  return Object.keys(sales).map(k=>{
+    const s=sales[k],d=deps[k]||{};
+    const cashDue=num(s.cash)-num(s.insta),ws=num(s.ws);
+    const cd=num(d.cashDep),wd=num(d.wsDep);
+    return {k,date:s.date,site:s.site,cashDue,ws,cd,wd,cr:d.cashReason||'',wr:d.wsReason||'',pc:cashDue-cd,pw:ws-wd,cash:num(s.cash),insta:num(s.insta)};
+  }).filter(r=>(!a||r.date>=a)&&(!b||r.date<=b)&&(!br||r.site===br))
+   .sort((x,y)=>y.date.localeCompare(x.date)||x.site.localeCompare(y.site));
+}
+const TOL=50;
+const status=(due,dep)=>due<=0.005?'NA':(due-dep)<TOL?'Deposited':dep>0.005?'Partial':'Pending';
+const sum=(a,f)=>a.reduce((t,r)=>t+f(r),0);
+const fmtD=d=>d.split('-').reverse().join('/');
+const cmp=(x,y)=>x.date.localeCompare(y.date)||x.site.localeCompare(y.site);
+const stat=r=>{const a=status(r.cashDue,r.cd),b=status(r.ws,r.wd);return (a==='Pending'||b==='Pending')?'Pending':(a==='Partial'||b==='Partial')?'Partial':(a==='NA'&&b==='NA')?'NA':'Deposited'};
+const rsn=r=>[r.cr,r.wr].filter(Boolean).join(' · ');
+
+// ---- sortable tables
+const sortSt={mt:[0,-1]};
+function sortable(id,cols,list,totalsCells){
+  if(!sortSt[id])sortSt[id]=[0,1];
+  const [ci,dir]=sortSt[id];
+  const arr=[...list].sort((a,b)=>{const x=cols[ci].sort(a),y=cols[ci].sort(b);return (x<y?-1:x>y?1:0)*dir});
+  let h='<thead><tr>'+cols.map((c,i)=>`<th class="${c.l?'l':''}" data-i="${i}" style="cursor:pointer">${esc(c.label)}${i===ci?(dir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr></thead><tbody>';
+  h+=arr.length?arr.map(r=>'<tr>'+cols.map(c=>`<td class="${(typeof c.cls==='function'?c.cls(r):'')||(c.l?'l':'')}">${c.get(r)}</td>`).join('')+'</tr>').join(''):`<tr><td colspan="${cols.length}" class="l sub">No records.</td></tr>`;
+  h+='</tbody>'+(arr.length&&totalsCells?'<tfoot><tr>'+totalsCells+'</tr></tfoot>':'');
+  $(id).innerHTML=h;
+  $(id).querySelectorAll('th').forEach(th=>th.onclick=()=>{const i=+th.dataset.i;const cur=sortSt[id];sortSt[id]=[i,cur[0]===i?-cur[1]:1];render()});
+}
+
+// ---- render
+function render(){
+  const R=rows();
+  const a=$('d1').value,b=$('d2').value,br=$('bs').value;
+  const pr=$('printRange');
+  if(pr){
+    const per=(a||b)?('Period: '+(a?fmtD(a):'start')+' to '+(b?fmtD(b):'today')):'Period: all available dates';
+    pr.textContent=per+' · '+(br?br+' · '+nm(br):'All branches');
+  }
+  const sp=$('screenPeriod');
+  if(sp){
+    const d1Txt=a||($('d1').min||'start'),d2Txt=b||($('d2').max||'today');
+    sp.textContent=`Period ${d1Txt} → ${d2Txt} · ${br?br+' · '+nm(br):'All branches'}`;
+  }
+  const cs=sum(R,r=>r.cashDue),csGross=sum(R,r=>r.cash),ws=sum(R,r=>r.ws),cd=sum(R,r=>r.cd),wd=sum(R,r=>r.wd);
+  const pc=cs-cd,pw=ws-wd;
+  const pctC=csGross>0?Math.min(100,cd/csGross*100):0,pctW=ws>0?Math.min(100,wd/ws*100):0;
+
+  $('kpis').innerHTML=
+   `<div class="k cash-k"><span>💵 Cash sales</span><b>${fm(csGross)}</b></div>
+    <div class="k cash-k"><span>💵 Deposited in bank (Cash)</span><b>${fm(cd)}</b><div class="bar"><i style="width:${pctC}%"></i></div><span>${pctC.toFixed(1)}% of cash sales</span></div>
+    <div class="k cash-k"><span>💵 Excess/Short (Cash)</span><b class="${pc>0.005?'neg':''}">${fm(-pc)}</b></div>
+    <div class="k ws-k"><span>📦 Wholesale sales</span><b>${fm(ws)}</b></div>
+    <div class="k ws-k"><span>📦 Deposited in bank (WS)</span><b>${fm(wd)}</b><div class="bar"><i style="width:${pctW}%"></i></div><span>${pctW.toFixed(1)}% of wholesale</span></div>
+    <div class="k ws-k"><span>📦 Variance (Wholesale)</span><b class="${pw>0.005?'neg':''}">${fm(-pw)}<b></div>`;
+
+  // Populate summary chips inside the Branch Wise Cash & Wholesale Panel Headers
+  if($('cashPanelStats')){
+    $('cashPanelStats').innerHTML = `<span class="stat-chip">Banked: <b>${pctC.toFixed(1)}%</b></span><span class="stat-chip">Diff: <b>${fm(-pc)}</b></span>`;
+  }
+  if($('wsPanelStats')){
+    $('wsPanelStats').innerHTML = `<span class="stat-chip">Banked: <b>${pctW.toFixed(1)}%</b></span><span class="stat-chip">Var: <b>${fm(-pw)}</b></span>`;
+  }
+
+  // branch totals
+  const by={};R.forEach(r=>{(by[r.site]=by[r.site]||{csG:0,csN:0,ws:0,cd:0,wd:0});const o=by[r.site];o.csG+=r.cash;o.csN+=r.cashDue;o.ws+=r.ws;o.cd+=r.cd;o.wd+=r.wd});
+  const arr=BR.filter(([c])=>by[c]).map(([c,n])=>({c,n,...by[c]}));
+
+  sortable('ct',[
+    {label:'Site',get:r=>`<span class="site-badge cash-b">${r.c}</span>`,sort:r=>r.c,l:1},
+    {label:'Branch',get:r=>`<b>${esc(r.n)}</b>`,sort:r=>r.n,l:1},
+    {label:'Total Cash Sales',get:r=>fm(r.csG),sort:r=>r.csG},
+    {label:'Total Cash Deposit',get:r=>fm(r.cd),sort:r=>r.cd},
+    {label:'Excess/Short',get:r=>fm(r.cd-r.csN),sort:r=>r.cd-r.csN,cls:r=>(r.cd-r.csN)<-0.005?'neg':'pos'}
+  ],arr,`<td class="l">Total</td><td></td><td>${fm(sum(arr,r=>r.csG))}</td><td>${fm(sum(arr,r=>r.cd))}</td><td class="${sum(arr,r=>r.cd-r.csN)<-0.005?'neg':'pos'}">${fm(sum(arr,r=>r.cd-r.csN))}</td>`);
+
+  sortable('wt',[
+    {label:'Site',get:r=>`<span class="site-badge ws-b">◆ ${r.c}</span>`,sort:r=>r.c,l:1},
+    {label:'Branch',get:r=>`<b>${esc(r.n)}</b>`,sort:r=>r.n,l:1},
+    {label:'Total WS',get:r=>fm(r.ws),sort:r=>r.ws},
+    {label:'Total WS Deposit',get:r=>fm(r.wd),sort:r=>r.wd},
+    {label:'Variance',get:r=>fm(r.wd-r.ws),sort:r=>r.wd-r.ws,cls:r=>(r.wd-r.ws)<-0.005?'neg':'pos'}
+  ],arr.filter(r=>r.ws>0.005||r.wd>0.005),`<td class="l">Total</td><td></td><td>${fm(sum(arr,r=>r.ws))}</td><td>${fm(sum(arr,r=>r.wd))}</td><td class="${sum(arr,r=>r.wd-r.ws)<-0.005?'neg':'pos'}">${fm(sum(arr,r=>r.wd-r.ws))}</td>`);
+
+  // pending details
+  const daysFromSales=d=>{
+    const [y,m,day]=String(d||'').split('-').map(Number);
+    if(!y||!m||!day)return 0;
+    const sDt=new Date(y,m-1,day);
+    const now=new Date(),tDt=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    return Math.max(0,Math.round((tDt-sDt)/864e5));
+  };
+  const P=[];R.filter(r=>Math.abs(r.pc)>=TOL||Math.abs(r.pw)>=TOL).sort(cmp).forEach(r=>{
+    const days=daysFromSales(r.date);
+    if(Math.abs(r.pc)>=TOL)P.push({date:r.date,site:r.site,type:'Cash'+(r.pc<0?' (excess)':''),amt:r.pc,days,rem:r.cr});
+    if(Math.abs(r.pw)>=TOL)P.push({date:r.date,site:r.site,type:'WS'+(r.pw<0?' (excess)':''),amt:r.pw,days,rem:r.wr});
+  });
+  const pTot=sum(P,r=>r.amt);
+  const pb=$('pendingBanner'),pbt=$('pendingBannerText');
+  if(pb&&pbt){
+    if(P.length){
+      pb.style.display='flex';
+      pbt.textContent=`${P.length} pending deposit item${P.length===1?'':'s'} (${fm(pTot)} AED net short) need attention. Check the pending rows below or open Deposit entry.`;
+    } else {
+      pb.style.display='none';
+    }
+  }
+  sortable('pt',[
+    {label:'Date',get:r=>fmtD(r.date),sort:r=>r.date,l:1},
+    {label:'Branch',get:r=>r.site+' · '+esc(nm(r.site)),sort:r=>r.site,l:1},
+    {label:'Pending',get:r=>`<span class="site-badge ${r.type.startsWith('Cash')?'cash-b':'ws-b'}">${r.type}</span>`,sort:r=>r.type},
+    {label:'Amount',get:r=>fm(r.amt),sort:r=>r.amt,cls:r=>r.amt<-0.005?'pos':'neg'},
+    {label:'No. of Days',get:r=>`${r.days} ${r.days===1?'day':'days'}`,sort:r=>r.days,cls:r=>r.days>1?'neg':''},
+    {label:'Remarks',get:r=>esc(r.rem)||'<span class="sub">— none given —</span>',sort:r=>r.rem,l:1}
+  ],P,`<td colspan="3" class="l">Total_Pending</td><td class="${pTot<-0.005?'pos':'neg'}">${fm(pTot)}</td><td></td><td></td>`);
+
+  renderMonth();
+  renderEntry(R);
+}
+
+function renderMonth(){
+  const m=$('mo').value;if(!m){$('mt').innerHTML='';return}
+  const L=rows(m+'-01',m+'-31',$('bs').value).sort(cmp);
+  const es=r=>r.cd-r.cashDue;
+  sortable('mt',[
+    {label:'Date',get:r=>fmtD(r.date),sort:r=>r.date,l:1},
+    {label:'Branch',get:r=>r.site+' · '+esc(nm(r.site)),sort:r=>r.site,l:1},
+    {label:'Cash sales',get:r=>fm(r.cash),sort:r=>r.cash},
+    {label:'Cash deposited',get:r=>fm(r.cd),sort:r=>r.cd},
+    {label:'Excess/Short',get:r=>fm(es(r)),sort:es,cls:r=>es(r)<-0.005?'neg':''},
+    {label:'WS sales',get:r=>fm(r.ws),sort:r=>r.ws},
+    {label:'WS deposited',get:r=>fm(r.wd),sort:r=>r.wd},
+    {label:'WS pending',get:r=>fm(r.pw),sort:r=>r.pw,cls:r=>r.pw>0.005?'neg':''},
+    {label:'Status',get:r=>`<span class="pill ${stat(r)}">${stat(r)}</span>`,sort:stat},
+    {label:'Reason',get:r=>esc(rsn(r)),sort:rsn,l:1}
+  ],L,`<td class="l">Total</td><td></td><td>${fm(sum(L,r=>r.cash))}</td><td>${fm(sum(L,r=>r.cd))}</td><td class="${sum(L,es)<-0.005?'neg':''}">${fm(sum(L,es))}</td><td>${fm(sum(L,r=>r.ws))}</td><td>${fm(sum(L,r=>r.wd))}</td><td class="${sum(L,r=>r.pw)>0.005?'neg':''}">${fm(sum(L,r=>r.pw))}</td><td></td><td></td>`);
+}
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.dl');if(!b)return;
+  const m=$('mo').value;const L=rows(m+'-01',m+'-31',$('bs').value).sort(cmp);
+  const head=['Date','Branch','Cash sales','Cash deposited','Excess/Short','WS sales','WS deposited','WS pending','Status','Reason'];
+  const es=r=>r.cd-r.cashDue;
+  const rowsOut=L.map(r=>[fmtD(r.date),r.site+' '+nm(r.site),r.cash,r.cd,es(r),r.ws,r.wd,r.pw,stat(r),rsn(r)]);
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const csv=[head,...rowsOut].map(r=>r.map(x=>typeof x==='number'?x.toFixed(2):q(x)).join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download='month-'+(m||'all')+'.csv';a.click();
+});
+
+function renderEntry(R){
+  R=R.filter(r=>canBr(r.site));
+  if(document.activeElement&&$('et').contains(document.activeElement))return;
+  let h='<thead><tr><th class="l">Date</th><th class="l">Branch</th><th>Cash to bank</th><th>Cash deposited</th><th class="l">Reason (cash)</th><th>Wholesale</th><th>WS deposited</th><th class="l">Reason (WS)</th><th>Status</th></tr></thead><tbody>';
+  R.forEach(r=>{const st=stat(r);
+    h+=`<tr data-k="${r.k}"><td class="l">${fmtD(r.date)}</td><td class="l">${r.site} · ${esc(nm(r.site))}</td><td>${fm(r.cashDue)}</td>
+    <td><input class="n" data-f="cashDep" value="${r.cd?r.cd:''}" inputmode="decimal" ${canWrite?'':'disabled'}></td>
+    <td><input class="r" data-f="cashReason" value="${esc(r.cr)}" ${canWrite?'':'disabled'}></td>
+    <td>${r.ws?fm(r.ws):'–'}</td>
+    <td>${r.ws?`<input class="n" data-f="wsDep" value="${r.wd?r.wd:''}" inputmode="decimal" ${canWrite?'':'disabled'}>`:''}</td>
+    <td>${r.ws?`<input class="r" data-f="wsReason" value="${esc(r.wr)}" ${canWrite?'':'disabled'}>`:''}</td>
+    <td><span class="pill ${st}">${st}</span></td></tr>`});
+  $('et').innerHTML=h+'</tbody>';
+}
+$('et').addEventListener('change',async e=>{
+  const tr=e.target.closest('tr[data-k]');if(!tr)return;
+  const k=tr.dataset.k;if(!canBr(k.split('_')[1])){setSt('You can only update your own branch.',1);return}
+  if(!ghToken()){setSt('Set your GitHub token first (top of page).',1);return}
+  const o={...(deps[k]||{})};
+  const looksNumeric=v=>v&&/^[\d,.\s-]+$/.test(v);
+  for(const i of tr.querySelectorAll('input[data-f]')){
+    const f=i.dataset.f,v=i.value.trim();
+    if(f.endsWith('Reason')&&looksNumeric(v)&&!(await appModal({title:'Check Reason Field',msg:'"'+v+'" looks like an amount, not a reason. Did you mean to put this in the deposit box instead?',confirmText:'Save as reason anyway',cancelText:'Leave as it was'}))){
+      i.value=o[f]||'';continue}
+    o[f]=f.endsWith('Dep')?num(v):v;
+  }
+  o.updated=new Date().toISOString();
+  try{await saveDeps([[k,o]]);deps[k]=o;setSt('Saved '+new Date().toLocaleTimeString());render()}
+  catch(err){setSt('Could not save: '+(err.message||err.name),1)}
+});
+
+// ---- Finance sales entry
+const parseD=s=>{const m=String(s).trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);return m?`${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`:null};
+$('imp').onclick=async()=>{
+  if(!admin){$('impm').textContent='Select the Finance role first.';return}
+  if(!ghToken()){$('impm').textContent='Set your GitHub token first (top of page).';return}
+  let skip=0;const S=[],D=[];
+  $('paste').value.split(/\r?\n/).forEach(ln=>{
+    const c=ln.split('\t');const date=parseD(c[2]||''),site=(c[0]||'').trim();
+    if(!date||!SITES.includes(site)){if(ln.trim())skip++;return}
+    S.push({date,site,cash:num(c[3]),insta:num(c[5]),ws:num(c[8])});
+    const k=date+'_'+site,old=deps[k]||{},nw={...old};let ch=false;
+    const cd=num(c[4]),wd=num(c[9]),cr=(c[7]||'').trim(),wr=(c[11]||'').trim();
+    if(cd&&!num(old.cashDep)){nw.cashDep=cd;ch=true}
+    if(wd&&!num(old.wsDep)){nw.wsDep=wd;ch=true}
+    if(cr&&!old.cashReason){nw.cashReason=cr;ch=true}
+    if(wr&&!old.wsReason){nw.wsReason=wr;ch=true}
+    if(ch){nw.updated=new Date().toISOString();D.push([k,nw])}
+  });
+  $('impm').textContent='Importing…';
+  try{await saveSales(S);await saveDeps(D);$('impm').textContent=`Imported ${S.length} row(s)${skip?`, skipped ${skip}`:''}.`;if(S.length)$('paste').value='';await loadAll()}
+  catch(e){$('impm').textContent='Failed: '+(e.message||e.name)}
+};
+$('sv').onclick=async()=>{
+  const d=$('ad').value,s=$('ab').value;if(!d||!s){$('svm').textContent='Pick a date and branch.';return}
+  if(!admin){$('svm').textContent='Select the Finance role first.';return}
+  if(!ghToken()){$('svm').textContent='Set your GitHub token first (top of page).';return}
+  try{await saveSales([{date:d,site:s,cash:num($('ac').value),insta:num($('ai').value),ws:num($('aw').value)}]);$('svm').textContent='Saved.';['ac','ai','aw'].forEach(i=>$(i).value='');loadAll()}
+  catch(e){$('svm').textContent='Failed: '+(e.message||e.name)}
+};
+
+// ---- UI wiring
+function setSt(t,bad){
+  $('st').textContent=t;
+  $('st').style.background=bad?'linear-gradient(145deg, #f87171, #dc2626)':'linear-gradient(145deg, #fcd34d, #f59e0b)';
+  $('st').style.color=bad?'#fff':'#2a1205';
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  ['dash','ent','adm'].forEach(t=>$(t).hidden=t!==b.dataset.t)});
+function appModal({title,msg,input,defaultValue='',placeholder='',confirmText='OK',cancelText='Cancel',alertOnly=false}){
+  return new Promise(resolve=>{
+    const ov=document.createElement('div');
+    ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:9999;padding:16px';
+    const box=document.createElement('div');
+    box.className='card';
+    box.style.cssText='max-width:420px;width:100%;margin:0;padding:18px;box-shadow:var(--neu-shadow)';
+    box.innerHTML=`<h2 style="margin:0 0 8px">${esc(title||'Notice')}</h2><div class="msg" style="margin-bottom:12px;white-space:pre-line;color:var(--tx)">${esc(msg||'')}</div>`+
+      (input?`<input type="${input==='pin'?'password':'text'}" id="appModalInp" value="${esc(defaultValue)}" placeholder="${esc(placeholder)}" style="width:100%;margin-bottom:12px">`:'')+
+      `<div class="f" style="justify-content:flex-end">`+
+      (alertOnly?'':`<button type="button" id="appModalCancel">${esc(cancelText)}</button>`)+
+      `<button type="button" id="appModalOk" style="background:linear-gradient(145deg,#34b87c,#258f5e);color:#fff">${esc(confirmText)}</button></div>`;
+    ov.appendChild(box);document.body.appendChild(ov);
+    const inp=box.querySelector('#appModalInp');
+    if(inp){inp.focus();inp.select();inp.addEventListener('keydown',ev=>{if(ev.key==='Enter')box.querySelector('#appModalOk').click();if(ev.key==='Escape'&&!alertOnly)box.querySelector('#appModalCancel').click()});}
+    const close=val=>{ov.remove();resolve(val)};
+    box.querySelector('#appModalOk').onclick=()=>close(input?inp.value:true);
+    const cancelBtn=box.querySelector('#appModalCancel');
+    if(cancelBtn)cancelBtn.onclick=()=>close(input?null:false);
+  });
+}
+
+$('bs').innerHTML='<option value="">All branches</option>';
+$('ab').innerHTML='';
+BR.forEach(([c,n])=>{$('bs').add(new Option(c+' · '+n,c));$('ab').add(new Option(c+' · '+n,c))});
+['d1','d2','bs'].forEach(i=>$(i).addEventListener('change',render));
+$('ad').value=new Date().toISOString().slice(0,10);
+$('mo').value=new Date().toISOString().slice(0,7);$('mo').addEventListener('change',render);
+
+function buildRoles(){$('role').innerHTML='<option value="">Select your role…</option><option value="finance">Finance (all branches)</option>'+BR.map(b=>`<option value="${b[0]}">${b[0]} · ${b[1]}</option>`).join('');$('role').value=role}
+function uiRole(){admin=role==='finance'&&localStorage.getItem('finUnlocked')==='1';canWrite=!!role;$('admTab').style.display=admin?'':'none';
+  if(!admin&&!$('adm').hidden)document.querySelector('[data-t=dash]').click();render()}
+seedFromDom();buildRoles();uiRole();
+$('role').onchange=async e=>{
+  const v=e.target.value;
+  if(v==='finance'&&localStorage.getItem('finUnlocked')!=='1'){
+    const p=await appModal({title:'Finance Role',msg:'Enter the Finance PIN:',input:'pin'});
+    if(p!==FINANCE_PIN){if(p!==null)await appModal({title:'Incorrect PIN',msg:'The PIN you entered is incorrect.',alertOnly:true});e.target.value=role;$('role').value=role;return}
+    localStorage.setItem('finUnlocked','1');
+  }
+  role=v;localStorage.setItem('role',role);uiRole();
+};
+$('tok').onclick=async()=>{
+  const cur=ghToken();
+  const p=await appModal({title:'GitHub Personal Access Token',msg:'Paste your GitHub personal access token (fine-grained, scoped to this repo, Contents: Read & write). It is kept only in this browser.',input:'text',defaultValue:cur?'••••• (already set — paste a new one to replace)':''});
+  if(p===null)return;
+  if(p.startsWith('•')||!p.trim()){return}
+  localStorage.setItem('ghToken',p.trim());setSt('Token saved in this browser.');
+};
+(async function(){
+  loadAll();
+  setInterval(loadAll,20000);window.addEventListener('focus',loadAll);
+})();
+</script>
+
+
+<scribe-shadow id="crxjs-ext" data-crx="okfkdaglfjjjfefdcppliegebpoegaii" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible; visibility: visible; pointer-events: none;"><template shadowrootmode="open"><div id="root-scribe-elem" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; overflow: visible; color: var(--text-default); pointer-events: none;"><div id="scribe-react-root"><div class="brand-refresh" data-stylus-theme-root="true" data-theme="dark" style="display: contents;"></div></div><div id="scribe-portal-root" class="scribe-hit-test" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; overflow: visible;"></div></div><link rel="stylesheet" href="chrome-extension://okfkdaglfjjjfefdcppliegebpoegaii/assets/style.css"></template></scribe-shadow>
+</body></html>
