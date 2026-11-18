@@ -753,7 +753,7 @@ textarea {
   border: 1px solid rgba(167, 243, 208, 0.65) !important;
   border-bottom: 4px solid #064e3b !important;
   border-radius: 13px !important;
-  padding: 6px 10px !important;
+  padding: 6px 14px !important;
   cursor: pointer;
   box-shadow: 0 6px 12px rgba(4, 120, 87, 0.45), inset 0 1.5px 1px rgba(255, 255, 255, 0.45) !important;
   transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
@@ -770,8 +770,8 @@ textarea {
 .export-closing-card .exp-ico {
   font-size: 15px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1));
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   display: inline-flex;
@@ -867,7 +867,7 @@ textarea {
 
 /* 3-Column Bottom Grid: Details of Pending | Dynamic Sales by Branch Graph | Key Notes */
 .bottom-three-col {
-  display: flex;
+  display: grid;
   grid-template-columns: 1.32fr 1.05fr 0.78fr;
   gap: 14px;
   margin-bottom: 14px;
@@ -1009,7 +1009,7 @@ textarea {
   border-left: 3.5px solid var(--cash-ac);
   border-bottom: 2.5px solid rgba(0, 0, 0, 0.45);
   border-radius: 10px;
-  padding: 5px 5px;
+  padding: 8px 11px;
   box-shadow: var(--neu-sm);
 }
 .note-box.ws-note { border-left-color: var(--ws-ac); }
@@ -1053,28 +1053,28 @@ textarea {
 .approval td {
   border: 1px solid #cbd5e1;
   padding: 5px 10px;
-  font-size: 11px;
+  font-size: 10px;
   color: #0f172a;
   text-align: left;
   white-space: normal;
   position: relative;
   background: #ffffff;
 }
-.approval tr.sig td { height: 60px; vertical-align: bottom; }
+.approval tr.sig td { height: 30px; vertical-align: bottom; }
 .approval td.lbl { font-weight: 800; width: 95px; background: #f8fafc; color: #0f172a; }
-.approval td.role { color: #0f172a; font-weight: 900; text-align: center; background: #ffffff; }
+.approval td.role { color: #0f172a; font-weight: 800; text-align: center; background: #ffffff; }
 .approval .dt { position: absolute; bottom: 3px; right: 8px; font-size: 7.5px; color: #64748b; font-weight: 600; }
 
 /* ---- Single-Page A4 Landscape Print Layout (Preserves HTML Theme Background + Top Header + Bottom Footer) ---- */
 @media print {
-  @page { size: A4 landscape; margin: 2mm 2mm; }
+  @page { size: A4 landscape; margin: 3mm 4mm; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   html, body {
     background: var(--bg-grad) !important;
     background-color: var(--bg) !important;
     color: var(--tx) !important;
     font-size: 7.2px !important;
-    line-height: 2.15 !important;
+    line-height: 1.15 !important;
     min-height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -1092,11 +1092,11 @@ textarea {
     margin-bottom: 3px !important;
     border-radius: 7px !important;
     background: #ffffff !important;
-    border: 2px solid #cbd5e1 !important;
+    border: 1px solid #cbd5e1 !important;
     border-bottom: 2.5px solid #94a3b8 !important;
   }
   .print-logo-banner img {
-    max-height: 63px !important;
+    max-height: 33px !important;
   }
 
   /* Hide screen-only controls */
